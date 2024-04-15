@@ -11,6 +11,9 @@ const directusUrl = 'https://fdnd-agency.directus.app/items/redpers_shares';
 // Create a new express app
 const app = express();
 
+// Define the IDs of the categories you want to load
+const categoryIds = [9, 1010, 7164, 6, 4, 3211, 63, 94];
+
 // Set ejs as the template engine
 app.set('view engine', 'ejs');
 
@@ -25,8 +28,6 @@ app.use(express.static('public'));
 
 // GET route for the index page
 app.get('/', function (request, response) {
-    // Define the IDs of the categories you want to load
-    const categoryIds = [9, 1010, 7164, 6, 4, 3211, 63, 94];
 
     // Fetch categories and posts concurrently
     Promise.all([
@@ -56,9 +57,6 @@ app.get('/', function (request, response) {
 // GET route for displaying all posts in a category
 app.get('/:categorySlug', function (request, response) {
     const categorySlug = request.params.categorySlug;
-
-    // Define the IDs of the categories you want to load
-    const categoryIds = [9, 1010, 7164, 6, 4, 3211, 63, 94];
 
     // Fetch category data based on provided category slug and filter by IDs
     fetchJson(`${redpersUrl}/categories?slug=${categorySlug}&include=${categoryIds.join(',')}`)
@@ -95,9 +93,6 @@ app.get('/:categorySlug/:postSlug', function (request, response) {
     const categorySlug = request.params.categorySlug;
     const postSlug = request.params.postSlug;
     const currentUrl = `${request.protocol}://${request.get('host')}${request.originalUrl}`; // Get the URL of the current post
-
-    // Define the IDs of the categories you want to load
-    const categoryIds = [9, 1010, 7164, 6, 4, 3211, 63, 94];
 
     // Fetch category data based on provided category slug and filter by IDs
     fetchJson(`${redpersUrl}/categories?slug=${categorySlug}&include=${categoryIds.join(',')}`)

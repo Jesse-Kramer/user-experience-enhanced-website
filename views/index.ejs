@@ -1,47 +1,45 @@
 <%- include('./partials/head') %>
+</head>
+<%- include('./partials/nav') %>
 
-    <main>
-            <!-- First grid-container for the first post -->
+<main>
+    <!-- Featured post -->
+    <% if (posts.length > 0) { %>
+        <% const featuredPost = posts[0]; %>
+        <% const featuredCategory = categories.find(category => category.id === featuredPost.categories[0]); %>
+        <% if (featuredCategory) { %>
             <section class="grid">
-                <% if (posts.length > 0) { %>
-                    <% const firstPost = posts[0]; %>
-                    <% const firstPostCategories = firstPost.categories.map(categoryId => categories.find(category => category.id === categoryId)); %>
-                    <% if (firstPostCategories.length > 0) { %>
-                        <% const firstPostCategory = firstPostCategories[0]; %>
-                        <a href="<%= firstPostCategory.slug %>/<%= firstPost.slug %>" class="article-link featured-text">
-                            <article class="article featured">
-                                <h3 class="headline featured">
-                                    <%- firstPost.title.rendered %>
-                                </h3>
-                                <img src="<%= firstPost.jetpack_featured_media_url %>" class="featured-image-mobile" alt="Post Image">                         
-                                <div class="featured-text">
-                                    <%- firstPost.excerpt.rendered %>
-                                </div>
-                                </h3>
-                                <hr>
-                                <div class="post-meta">
-                                    <span class="author"><%= firstPost.yoast_head_json.author %></span>
-                                    <span class="reading-time">| <%= firstPost.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
-                                </div>                                
-                            </article>
-                        </a>
-                        <a href="<%= firstPostCategory.slug %>/<%= firstPost.slug %>" class="article-link featured-image">
-                            <article class="article featured">
-                                <img src="<%= firstPost.jetpack_featured_media_url %>" alt="Post Image">                         
-                            </article>
-                        </a>
-                    <% } %>
-                <% } %>
+                <a href="<%= featuredCategory.slug %>/<%= featuredPost.slug %>" class="article-link featured-text">
+                    <article class="article featured">
+                        <h3 class="headline featured">
+                            <%- featuredPost.title.rendered %>
+                        </h3>
+                        <img src="<%= featuredPost.jetpack_featured_media_url %>" class="featured-image-mobile" alt="Post Image">
+                        <div class="featured-text">
+                            <%- featuredPost.excerpt.rendered %>
+                        </div>
+                        <hr>
+                        <div class="post-meta">
+                            <span class="author"><%= featuredPost.yoast_head_json.author %></span>
+                            <span class="reading-time">| <%= featuredPost.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
+                        </div>
+                    </article>
+                </a>
+                <a href="<%= featuredCategory.slug %>/<%= featuredPost.slug %>" class="article-link featured-image">
+                    <article class="article featured">
+                        <img src="<%= featuredPost.jetpack_featured_media_url %>" alt="Post Image">
+                    </article>
+                </a>
             </section>
+        <% } %>
+    <% } %>
 
-            <!-- Second grid-container for remaining posts -->
-            <section class="article-list">
-                <% posts.slice(1).forEach(post => { %>
-                    <% const primaryCategory = categories.find(category => category.id === post.categories[0]); %>
-                    <% if (primaryCategory) { %>
-                        <a href="<%= primaryCategory.slug %>/<%= post.slug %>" class="article-link">
-                    <% } %>
-                    <% }); %>
+    <!-- Remaining posts -->
+    <section class="article-list">
+        <% posts.slice(1).forEach(post => { %>
+            <% const postCategory = categories.find(category => category.id === post.categories[0]); %>
+            <% if (postCategory) { %>
+                <a href="<%= postCategory.slug %>/<%= post.slug %>" class="article-link">
                     <article class="article">
                         <img src="<%= post.jetpack_featured_media_url %>" alt="Post Image">
                         <h3 class="headline">
@@ -51,14 +49,12 @@
                         <div class="post-meta">
                             <span class="author"><%= post.yoast_head_json.author %></span>
                             <span class="reading-time">| <%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
-                        </div>          
+                        </div>
                     </article>
-                    </a>
-                <% }); %>
-            </section>
+                </a>
+            <% } %>
+        <% }); %>
+    </section>
+</main>
 
-        
-        
-    </main>
-
-    <%- include('./partials/foot') %>
+<%- include('./partials/foot') %>
