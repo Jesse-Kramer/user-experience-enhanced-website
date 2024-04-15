@@ -1,6 +1,6 @@
 > _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
-# Titel
+# Red Pers V2
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
 
 ## Inhoudsopgave
@@ -25,6 +25,12 @@
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+Om aan deze repository te werken moet je de volgende stappen volgen:
+1. Clone de repository naar jouw lokale machine.
+2. Zorg ervoor dat Node.js is geïnstalleerd op jouw systeem.
+3. Installeer de benodigde npm-pakketten door `npm install` uit te voeren in de hoofdmap van het project.
+4. Start de ontwikkelingsserver door `npm start` uit te voeren.
+5. Begin met bijdragen aan het project en maak pull requests aan wanneer klaar.
 
 ## Bronnen
 
