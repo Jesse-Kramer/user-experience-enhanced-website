@@ -1,0 +1,24 @@
+<%- include('./partials/head') %>
+
+    <main>
+        <h2><%- category.name %></h1>
+            <section class="article-list">
+                <% posts.forEach(post => { %>
+                    <a href="<%= category.slug %>/<%= post.slug %>" class="article-link">
+                    <article class="article">
+                        <img src="<%= post.jetpack_featured_media_url %>" alt="Post Image">
+                        <h3 class="headline">
+                            <%- post.title.rendered %>
+                        </h3>
+                        <hr>
+                        <div class="post-meta">
+                            <span class="author"><%= post.yoast_head_json.author %></span>
+                            <span class="reading-time">| <%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
+                        </div>          
+                    </article>
+                    </a>
+                <% }); %>
+            </section>
+    </main>
+
+    <%- include('./partials/foot') %>
