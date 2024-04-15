@@ -2,7 +2,7 @@
 </head>
 <%- include('./partials/nav') %>
     <main>
-        <h2><%- category.name %></h1>
+        <h1><%- category.name %></h1>
             <section class="article-list">
                 <% posts.forEach(post => { %>
                     <a href="<%= category.slug %>/<%= post.slug %>" class="article-link">
