@@ -11,13 +11,11 @@ function shareButton(){
     } else {
         console.error('Sharing not supported');
         // Fallback behavior if sharing is not supported
-        // For example, you can open a dialog box with the link for manual sharing
+        // Will add an fallback function here, soon.
     }
 }
 
 /* Hamburger menu code*/
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const menuIcon = document.querySelector('.menu_icon');
@@ -47,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* Current day and month code */
-
 const currentDateElement = document.querySelector('.current-date');
 const currentDate = new Date();
 const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };

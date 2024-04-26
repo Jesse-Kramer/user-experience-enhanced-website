@@ -2,8 +2,6 @@
  
 //Add an event listener to the share button
 document.getElementById("share-button").addEventListener("click", async(event) => {
-   
-    event.preventDefault();
  
     // Get the post and category slug from the hidden input field
     const postSlugInput = document.querySelector('input[name="slug"]');
@@ -37,4 +35,6 @@ document.getElementById("share-button").addEventListener("click", async(event) =
     } catch (error) {
         console.error('Error:', error);
     }
+
+        event.preventDefault();
 });
