@@ -1,20 +1,3 @@
-function shareButton(){
-    // Check if the share API is supported by the browser
-    if (navigator.share) {
-        navigator.share({
-            url: currentUrl
-        }).then(() => {
-            console.log('Link shared successfully');
-        }).catch((error) => {
-            console.error('Error sharing link:', error);
-        });
-    } else {
-        console.error('Sharing not supported');
-        // Fallback behavior if sharing is not supported
-        // Will add an fallback function here, soon.
-    }
-}
-
 /* Hamburger menu code*/
 document.addEventListener("DOMContentLoaded", function () {
 
