@@ -15,7 +15,7 @@
                             <%- featuredPost.title.rendered %>
                         </h3>
                         
-                        <img src="<%= featuredPost.jetpack_featured_media_url %>" class="featured-image-mobile" alt="Post Image">
+                        <img src="<%= featuredPost.jetpack_featured_media_url %>" class="featured-image-mobile" alt="Post Image" loading="lazy">
                         <div class="featured-text">
                             <%- featuredPost.excerpt.rendered %>
                         </div>
@@ -28,7 +28,7 @@
                 </a>
                 <a href="<%= featuredCategory.slug %>/<%= featuredPost.slug %>" class="article-link featured-image">
                     <article class="article featured">
-                        <img src="<%= featuredPost.jetpack_featured_media_url %>" alt="Post Image">
+                        <img src="<%= featuredPost.jetpack_featured_media_url %>" alt="Post Image" loading="lazy">
                     </article>
                 </a>
             </section>
@@ -42,7 +42,7 @@
             <% if (postCategory) { %>
                 <a href="<%= postCategory.slug %>/<%= post.slug %>" class="article-link">
                     <article class="article">
-                        <img src="<%= post.jetpack_featured_media_url %>" alt="Post Image">
+                        <img src="<%= post.jetpack_featured_media_url %>" alt="Post Image" loading="lazy">
                         <h3 class="headline">
                             <%- post.title.rendered %>
                         </h3>
