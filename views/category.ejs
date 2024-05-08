@@ -7,7 +7,7 @@
                 <% posts.forEach(post => { %>
                     <a href="<%= category.slug %>/<%= post.slug %>" class="article-link">
                     <article class="article">
-                        <img src="<%= post.jetpack_featured_media_url ? post.jetpack_featured_media_url : '/images/placeholder.png' %>" alt="Post Image" loading="lazy"> 
+                        <picture><img src="<%= post.jetpack_featured_media_url ? post.jetpack_featured_media_url : '/images/placeholder.png' %>" alt="Post Image" loading="lazy"> </picture>
                         <h3 class="headline">
                             <%- post.title.rendered %>
                         </h3>

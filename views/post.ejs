@@ -13,7 +13,7 @@
         <h2 class="headline post">
             <%- post.title.rendered %>
         </h2>
-        <img src="<%= post.jetpack_featured_media_url ? post.jetpack_featured_media_url : '/images/placeholder.png' %>" alt="Post Image" class="post-image" loading="lazy">
+        <picture><img src="<%= post.jetpack_featured_media_url ? post.jetpack_featured_media_url : '/images/placeholder.png' %>" alt="Post Image" class="post-image" loading="lazy"></picture>
         <div class="post-info" id="post-info">
             <span class="category">
                 <% post.categories.forEach(function(categoryId, index) { %>
